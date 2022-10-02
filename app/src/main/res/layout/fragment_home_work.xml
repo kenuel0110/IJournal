@@ -43,7 +43,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rc_homeWork"
         android:layout_width="match_parent"
-        android:layout_height="579dp"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:layout_marginBottom="30dp"/>
+        android:layout_marginTop="65dp"
+        android:layout_marginBottom="90dp" />
 </FrameLayout>
