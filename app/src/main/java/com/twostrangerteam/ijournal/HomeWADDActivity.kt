@@ -81,8 +81,8 @@ class HomeWADDActivity : AppCompatActivity() {
 
 
         val dpd = DatePickerDialog(this,
-            { view, year, monthOfYear, dayOfMonth -> // Display Selected date in textbox
-                binding.teDataEnd.setText("$dayOfMonth.$monthOfYear.$year")
+            { view, year, month, dayOfMonth -> // Display Selected date in textbox
+                binding.teDataEnd.setText("$dayOfMonth.${month+1}.$year")
             }, year, month, day
         )
         dpd.show()

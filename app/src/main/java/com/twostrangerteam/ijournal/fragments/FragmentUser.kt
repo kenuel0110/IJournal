@@ -19,6 +19,8 @@ import android.text.InputType
 import android.widget.EditText
 import com.google.firebase.storage.FirebaseStorage
 import com.squareup.picasso.Picasso
+import com.twostrangerteam.ijournal.HomeWPageActivity
+import com.twostrangerteam.ijournal.Settings_ListActivity
 import com.twostrangerteam.ijournal.classes.User
 import java.util.*
 
@@ -54,6 +56,16 @@ class FragmentUser : Fragment() {
         }
         binding.tvEmail.setOnClickListener {
             dataChange("Изменение Em@il", email, "Введите новый Em@il", InputType.TYPE_CLASS_TEXT, "email")
+        }
+        binding.btnChat.setOnClickListener {
+            Toast.makeText(activity, "Ещё в разработке", Toast.LENGTH_SHORT).show()
+        }
+        binding.btnPlaning.setOnClickListener {
+            Toast.makeText(activity, "Ещё в разработке", Toast.LENGTH_SHORT).show()
+        }
+        binding.btnSettings.setOnClickListener {
+            val intent = Intent(view.context, Settings_ListActivity::class.java)
+            startActivity(intent)
         }
     }
 
