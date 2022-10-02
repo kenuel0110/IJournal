@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "673196697696",
+    "firebase_url": "https://ijournal-fb041-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "ijournal-fb041",
+    "storage_bucket": "ijournal-fb041.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:673196697696:android:c5774e82d2c521af46fb05",
+        "android_client_info": {
+          "package_name": "com.twostrangerteam.ijournal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "673196697696-cdi085pbjt96gtt8lmpenv9he5pkm24k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBn8q2uWLgMZWmLcBjjmjru_a6jXzl9WpQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "673196697696-cdi085pbjt96gtt8lmpenv9he5pkm24k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

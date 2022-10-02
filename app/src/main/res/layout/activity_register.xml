@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_gray"
+    android:scrollbars = "vertical"
+    tools:context=".joinus.RegisterActivity">
+
+    <TextView
+        android:id="@+id/textView_logo1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/arsenal_bold"
+        android:text="I"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_logo2"
+        app:layout_constraintEnd_toStartOf="@+id/textView_logo2"
+        app:layout_constraintTop_toTopOf="@+id/textView_logo2" />
+
+    <TextView
+        android:id="@+id/textView_logo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:fontFamily="@font/arsenal_bold"
+        android:rotationY="-182"
+        android:text="J"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_logo3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/arsenal_bold"
+        android:text="ournal"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_logo2"
+        app:layout_constraintStart_toEndOf="@+id/textView_logo2"
+        app:layout_constraintTop_toTopOf="@+id/textView_logo2" />
+
+    <Button
+        android:id="@+id/button_photo_ch"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/cycle_btn"
+        android:textColor="@color/white"
+        app:icon="@drawable/ic_edit_photo"
+        app:iconPadding="0dp"
+        app:iconSize="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_logo2" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/select_iv"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        app:civ_border_color="@color/gray"
+        app:civ_border_width="3dp"
+        app:layout_constraintBottom_toBottomOf="@+id/button_photo_ch"
+        app:layout_constraintEnd_toEndOf="@+id/button_photo_ch"
+        app:layout_constraintStart_toStartOf="@+id/button_photo_ch"
+        app:layout_constraintTop_toTopOf="@+id/button_photo_ch" />
+
+    <EditText
+        android:id="@+id/te_nick"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/courner_te"
+        android:ems="10"
+        android:fontFamily="@font/arsenal_bold"
+        android:hint="Ник"
+        android:inputType="textPersonName"
+        android:maxLength="35"
+        android:maxLines="0"
+        android:padding="8dp"
+        android:paddingLeft="16dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/gray"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_photo_ch"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/te_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/courner_te"
+        android:ems="10"
+        android:hint="Em@il"
+        android:padding="8dp"
+        android:maxLength="35"
+        android:maxLines="0"
+        android:paddingLeft="16dp"
+        android:fontFamily="@font/arsenal_bold"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/white"
+        android:textColorHint="@color/gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/te_crypt" />
+
+    <EditText
+        android:id="@+id/te_pass"
+        android:maxLength="28"
+        android:maxLines="0"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/courner_te"
+        android:ems="10"
+        android:fontFamily="@font/arsenal_bold"
+        android:hint="Пароль"
+        android:inputType="textPassword"
+        android:padding="8dp"
+        android:paddingLeft="16dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/te_email" />
+
+    <EditText
+        android:id="@+id/te_crypt"
+        android:maxLength="35"
+        android:maxLines="0"
+        android:fontFamily="@font/arsenal_bold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/courner_te"
+        android:ems="10"
+        android:hint="Студентческий"
+        android:padding="8dp"
+        android:paddingLeft="16dp"
+        android:inputType="textPersonName"
+        android:textColor="@color/white"
+        android:textColorHint="@color/gray"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/te_nick" />
+
+    <Button
+        android:id="@+id/btn_reg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/courner_btn"
+        android:fontFamily="@font/arsenal_bold"
+
+        android:text="РЕГИСТРАЦИЯ"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/te_pass"
+        app:layout_constraintStart_toStartOf="@+id/te_pass"
+        app:layout_constraintTop_toBottomOf="@+id/te_pass" />
+
+    <TextView
+        android:id="@+id/go_to_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/arsenal_bold"
+        android:text="Уже есть аккаунт?"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/btn_reg"
+        app:layout_constraintStart_toStartOf="@+id/btn_reg"
+        app:layout_constraintTop_toBottomOf="@+id/btn_reg" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

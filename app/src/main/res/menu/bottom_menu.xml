@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/homework_list" android:title="Домашка" android:icon="@drawable/ic_homework" android:orderInCategory="1"/>
+    <item android:id="@+id/raiting_list" android:title="Оценки" android:icon="@drawable/ic_raiting" android:orderInCategory="2"/>
+    <item android:id="@+id/user_list" android:title="Уголок" android:icon="@drawable/ic_user_page" android:orderInCategory="3"/>
+
+</menu>

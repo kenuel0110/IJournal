@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_gray"
+    tools:context=".joinus.LoginActivity">
+
+    <TextView
+        android:id="@+id/textView_logo4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/arsenal_bold"
+        android:text="ournal"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_logo"
+        app:layout_constraintStart_toEndOf="@+id/textView_logo"
+        app:layout_constraintTop_toTopOf="@+id/textView_logo" />
+
+    <TextView
+        android:id="@+id/textView_logo5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/arsenal_bold"
+        android:text="I"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_logo"
+        app:layout_constraintEnd_toStartOf="@+id/textView_logo"
+        app:layout_constraintTop_toTopOf="@+id/textView_logo" />
+
+    <TextView
+        android:id="@+id/textView_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:fontFamily="@font/arsenal_bold"
+        android:rotationY="-182"
+        android:text="J"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/te_email2"
+        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintStart_toStartOf="@+id/te_email2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/te_email2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/courner_te"
+        android:ems="10"
+        android:fontFamily="@font/arsenal_bold"
+        android:hint="Em@il"
+        android:inputType="textEmailAddress"
+        android:maxLength="35"
+        android:maxLines="0"
+        android:padding="8dp"
+        android:paddingLeft="16dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_logo"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/courner_btn"
+
+        android:fontFamily="@font/arsenal_bold"
+        android:text="ВОЙТИ"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/te_pass2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/te_pass2"
+        app:layout_constraintTop_toBottomOf="@+id/te_pass2" />
+
+    <EditText
+        android:id="@+id/te_pass2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/courner_te"
+        android:ems="10"
+        android:fontFamily="@font/arsenal_bold"
+        android:hint="Пароль"
+        android:inputType="textPassword"
+        android:maxLength="28"
+        android:maxLines="0"
+        android:padding="8dp"
+        android:paddingLeft="16dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/gray"
+        app:layout_constraintEnd_toEndOf="@+id/te_email2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/te_email2"
+        app:layout_constraintTop_toBottomOf="@+id/te_email2"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/go_to_reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/arsenal_bold"
+        android:text="Нет аккаунта? Создайте!"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/btn_login"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="@+id/btn_login"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

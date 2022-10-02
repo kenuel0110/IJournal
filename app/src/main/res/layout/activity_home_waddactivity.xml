@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeWADDActivity">
+
+    <EditText
+        android:id="@+id/te_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/courner_te"
+        android:ems="10"
+        android:fontFamily="@font/arsenal_bold"
+        android:hint="Заголовок"
+        android:inputType="text"
+        android:maxLength="35"
+        android:maxLines="0"
+        android:padding="8dp"
+        android:paddingLeft="16dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/te_homework"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/courner_te"
+        android:ems="10"
+        android:fontFamily="@font/arsenal_bold"
+        android:gravity="start|top"
+        android:hint="Домашка"
+        android:inputType="textMultiLine"
+        android:lines="6"
+        android:maxLength="320"
+        android:maxLines="6"
+        android:minLines="3"
+        android:padding="8dp"
+        android:paddingLeft="16dp"
+        android:scrollbars="vertical"
+        android:textColor="@color/white"
+        android:textColorHint="@color/gray"
+        app:layout_constraintEnd_toEndOf="@+id/te_title"
+        app:layout_constraintStart_toStartOf="@+id/te_title"
+        app:layout_constraintTop_toBottomOf="@+id/te_title" />
+
+    <Spinner
+        android:id="@+id/spinner_lessons"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/courner_te"
+        app:layout_constraintEnd_toEndOf="@+id/te_homework"
+        app:layout_constraintStart_toStartOf="@+id/te_homework"
+        app:layout_constraintTop_toBottomOf="@+id/te_homework" />
+
+    <EditText
+        android:id="@+id/te_data_start"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/courner_te"
+        android:ems="10"
+        android:fontFamily="@font/arsenal"
+        android:gravity="center"
+        android:hint="Дата создания"
+        android:inputType="text"
+        android:maxLength="35"
+        android:maxLines="0"
+        android:padding="8dp"
+        android:paddingLeft="16dp"
+
+        android:textColor="@color/white"
+        android:textColorHint="@color/gray"
+        app:layout_constraintBottom_toTopOf="@+id/btn_cancel"
+        app:layout_constraintStart_toStartOf="@+id/btn_cancel" />
+
+    <EditText
+        android:id="@+id/te_data_end"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/courner_te"
+        android:ems="10"
+        android:fontFamily="@font/arsenal"
+        android:gravity="center"
+        android:hint="Дата сдачи"
+        android:inputType="text"
+        android:maxLength="35"
+        android:maxLines="0"
+        android:padding="8dp"
+        android:paddingLeft="16dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/gray"
+        app:layout_constraintBottom_toTopOf="@+id/btn_conf"
+        app:layout_constraintEnd_toEndOf="@+id/btn_conf"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/btn_cancel" />
+
+    <Button
+        android:id="@+id/btn_cancel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/courner_btn"
+        android:fontFamily="@font/arsenal_bold"
+        android:text="ОТМЕНА"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_data_picker"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/courner_btn"
+        android:fontFamily="@font/arsenal"
+        android:text="Выбор даты"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/te_data_end"
+        app:layout_constraintEnd_toEndOf="@+id/te_data_end"
+        app:layout_constraintStart_toStartOf="@+id/te_data_end" />
+
+    <Button
+        android:id="@+id/btn_conf"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/courner_btn"
+        android:fontFamily="@font/arsenal_bold"
+        android:text="ПРИНЯТЬ"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_cancel" />
+</androidx.constraintlayout.widget.ConstraintLayout>

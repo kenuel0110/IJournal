@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.FragmentUser">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/avatarka"
+            android:layout_width="100dp"
+            android:layout_height="100dp" android:padding="8dp"
+            app:civ_border_color="@color/gray"
+            app:civ_border_width="3dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_Nick"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/arsenal_bold"
+                android:padding="2dp"
+                android:text=""
+                android:textSize="20sp" />
+
+            <TextView
+                android:textColor="@color/gray"
+                android:id="@+id/tv_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/arsenal"
+                android:padding="2dp"
+                android:text=""
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_crypt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/arsenal"
+                android:padding="2dp"
+                android:text=""
+                android:textSize="18sp"
+                android:textColor="@color/gray"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_signOut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/courner_btn"
+        android:fontFamily="@font/arsenal_bold"
+
+        android:padding="12dp"
+
+        android:layout_margin="30dp"
+
+        android:gravity="center"
+        android:text="ВЫЙТИ"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+
+</FrameLayout>

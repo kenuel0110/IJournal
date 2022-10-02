@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/samsung/Downloads/IJournal/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.12604166666666666" />
+        <entry key="..\:/Users/samsung/Downloads/IJournal/app/src/main/res/drawable/buttom_selector.xml" value="0.12604166666666666" />
+        <entry key="..\:/Users/samsung/Downloads/IJournal/app/src/main/res/drawable/courner_btn.xml" value="0.12604166666666666" />
+        <entry key="..\:/Users/samsung/Downloads/IJournal/app/src/main/res/drawable/courner_te.xml" value="0.12604166666666666" />
+        <entry key="..\:/Users/samsung/Downloads/IJournal/app/src/main/res/drawable/cycle_btn.xml" value="0.240625" />
+        <entry key="..\:/Users/samsung/Downloads/IJournal/app/src/main/res/drawable/filter_item.xml" value="0.240625" />
+        <entry key="..\:/Users/samsung/Downloads/IJournal/app/src/main/res/drawable/gradient_text.xml" value="0.12604166666666666" />
+        <entry key="..\:/Users/samsung/Downloads/IJournal/app/src/main/res/drawable/spinner_list.xml" value="0.240625" />
+        <entry key="..\:/Users/samsung/Downloads/IJournal/app/src/main/res/layout/activity_home_waddactivity.xml" value="0.22" />
+        <entry key="..\:/Users/samsung/Downloads/IJournal/app/src/main/res/layout/activity_home_wpage.xml" value="0.25" />
+        <entry key="..\:/Users/samsung/Downloads/IJournal/app/src/main/res/layout/activity_login.xml" value="0.26456876456876455" />
+        <entry key="..\:/Users/samsung/Downloads/IJournal/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/samsung/Downloads/IJournal/app/src/main/res/layout/activity_register.xml" value="1.25" />
+        <entry key="..\:/Users/samsung/Downloads/IJournal/app/src/main/res/layout/fragment_grade.xml" value="0.33" />
+        <entry key="..\:/Users/samsung/Downloads/IJournal/app/src/main/res/layout/fragment_home_work.xml" value="0.5" />
+        <entry key="..\:/Users/samsung/Downloads/IJournal/app/src/main/res/layout/fragment_user.xml" value="0.25" />
+        <entry key="..\:/Users/samsung/Downloads/IJournal/app/src/main/res/layout/home_work_item.xml" value="0.28697850821744625" />
+        <entry key="..\:/Users/samsung/Downloads/IJournal/app/src/main/res/layout/spinner_list.xml" value="0.21" />
+        <entry key="..\:/Users/samsung/Downloads/IJournal/app/src/main/res/menu/bottom_menu.xml" value="0.10989583333333333" />
+        <entry key="..\:/Users/samsung/Downloads/IJournal/app/src/main/res/mipmap-anydpi-v26/ic_launcher_old.webp.xml" value="0.12604166666666666" />
+        <entry key="..\:/Users/samsung/Downloads/IJournal/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.12604166666666666" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8 (24)" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="types">
+        <item>Фильтр</item>
+        <item>Экология</item>
+        <item>Информационные технологии</item>
+        <item>Интернет технологии</item>
+        <item>Культура речи</item>
+        <item>Английский язык</item>
+        <item>Математика</item>
+        <item>Физ-ра</item>
+        <item>Введение в профессию</item>
+        <item>История</item>
+        <item>Проектная деятельность</item>
+    </string-array>
+
+    <string-array name="lessons">
+        <item>Экология</item>
+        <item>Информационные технологии</item>
+        <item>Интернет технологии</item>
+        <item>Культура речи</item>
+        <item>Английский язык</item>
+        <item>Математика</item>
+        <item>Физ-ра</item>
+        <item>Введение в профессию</item>
+        <item>История</item>
+        <item>Проектная деятельность</item>
+    </string-array>
+</resources>
