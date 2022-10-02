@@ -143,9 +143,6 @@
 
     <EditText
         android:id="@+id/te_crypt"
-        android:maxLength="35"
-        android:maxLines="0"
-        android:fontFamily="@font/arsenal_bold"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -153,10 +150,13 @@
         android:layout_marginEnd="24dp"
         android:background="@drawable/courner_te"
         android:ems="10"
+        android:fontFamily="@font/arsenal_bold"
         android:hint="Студентческий"
+        android:inputType="number"
+        android:maxLength="7"
+        android:maxLines="0"
         android:padding="8dp"
         android:paddingLeft="16dp"
-        android:inputType="textPersonName"
         android:textColor="@color/white"
         android:textColorHint="@color/gray"
 

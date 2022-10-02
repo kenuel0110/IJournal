@@ -1,8 +1,7 @@
 package com.twostrangerteam.ijournal.fragments
 
-import android.app.Activity
 import android.app.AlertDialog
-import android.content.ContentResolver
+import android.content.DialogInterface
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,14 +10,13 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-import com.twostrangerteam.ijournal.MainActivity
-import com.twostrangerteam.ijournal.R
-import com.twostrangerteam.ijournal.databinding.ActivityMainBinding
 import com.twostrangerteam.ijournal.databinding.FragmentUserBinding
 import com.twostrangerteam.ijournal.joinus.LoginActivity
 import android.content.Intent
 import android.net.Uri
 import android.provider.MediaStore
+import android.text.InputType
+import android.widget.EditText
 import com.google.firebase.storage.FirebaseStorage
 import com.squareup.picasso.Picasso
 import com.twostrangerteam.ijournal.classes.User
@@ -28,6 +26,13 @@ import java.util.*
 class FragmentUser : Fragment() {
 
     lateinit var binding: FragmentUserBinding
+
+    private var nick = ""
+    private var uid = ""
+    private var crypt = ""
+    private var email = ""
+    private var selectedPhoto = ""
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -40,6 +45,70 @@ class FragmentUser : Fragment() {
 
         binding.avatarka.setOnClickListener {
             changeAvatar()
+        }
+        binding.tvNick.setOnClickListener {
+            dataChange("Изменение ника", nick, "Введите новый ник", InputType.TYPE_CLASS_TEXT, "nick")
+        }
+        binding.tvCrypt.setOnClickListener {
+            dataChange("Изменение шифра студака", crypt, "Введите новый шифр", InputType.TYPE_CLASS_NUMBER, "crypt")
+        }
+        binding.tvEmail.setOnClickListener {
+            dataChange("Изменение Em@il", email, "Введите новый Em@il", InputType.TYPE_CLASS_TEXT, "email")
+        }
+    }
+
+    private fun dataChange(title: String, value: String, hint: String, type: Int, name_v: String) {
+        val builder: AlertDialog.Builder = android.app.AlertDialog.Builder(getActivity())
+        builder.setTitle(title)
+
+        val input = EditText(getActivity())
+        input.setHint(hint)
+        input.setText(value)
+        input.inputType = type
+        builder.setView(input)
+        builder.setPositiveButton("Изменить", DialogInterface.OnClickListener { dialog, which ->
+            when(name_v){
+                "nick"->{
+                    nick= input.text.toString()
+                }
+                "email"->{
+                    email= input.text.toString()
+                }
+                "crypt"->{
+                    crypt= input.text.toString()
+                }
+            }
+            if (value != input.text.toString()) changeUserData()
+        })
+        builder.setNegativeButton("Отменить", DialogInterface.OnClickListener { dialog, which -> dialog.cancel() })
+
+        builder.show()
+    }
+
+    private fun nickChange() {
+
+    }
+
+    private fun changeUserData() {
+        val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
+
+        val mRefUser = FirebaseDatabase.getInstance().getReference("/users/")
+        mRefUser.child(uid.toString()).get().addOnSuccessListener {
+            if (it.exists()) {
+                val user = User(
+                    uid,
+                    nick,
+                    selectedPhoto,
+                    crypt,
+                    email)
+
+                ref.setValue(user).addOnSuccessListener{
+                    Toast.makeText(activity, "Профиль изменён", Toast.LENGTH_SHORT).show()
+                    getUserInformation()
+                }.addOnFailureListener {
+                    Toast.makeText(activity, it.message.toString(), Toast.LENGTH_SHORT).show()
+                }
+            }
         }
     }
 
@@ -96,6 +165,8 @@ class FragmentUser : Fragment() {
 
                 ref.setValue(user).addOnSuccessListener{
                     Toast.makeText(activity, "Фото профиля сохранено", Toast.LENGTH_SHORT).show()
+                }.addOnFailureListener {
+                    Toast.makeText(activity, it.message.toString(), Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -123,13 +194,17 @@ class FragmentUser : Fragment() {
 
     private fun getUserInformation() {
         val mRefUser = FirebaseDatabase.getInstance().getReference("/users/")
-        val uid = FirebaseAuth.getInstance().uid
-        mRefUser.child(uid.toString()).get().addOnSuccessListener {
+        uid = FirebaseAuth.getInstance().uid.toString()
+        mRefUser.child(uid).get().addOnSuccessListener {
             if (it.exists()) {
-                Picasso.get().load(it.child("profileImageUrl").value.toString()).into(binding.avatarka)
-                binding.tvNick.text = it.child("nick").value.toString()
-                binding.tvCrypt.text = it.child("crypt").value.toString()
-                binding.tvEmail.text = it.child("email").value.toString()
+                nick = it.child("nick").value.toString()
+                crypt = it.child("crypt").value.toString()
+                email = it.child("email").value.toString()
+                selectedPhoto = it.child("profileImageUrl").value.toString()
+                Picasso.get().load(selectedPhoto).into(binding.avatarka)
+                binding.tvNick.text = nick
+                binding.tvCrypt.text = crypt
+                binding.tvEmail.text = email
             }
         }
     }
