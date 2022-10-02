@@ -89,7 +89,7 @@ class HomeWADDActivity : AppCompatActivity() {
     }
 
     private fun add2database() {
-        if (binding.teTitle.text.isEmpty() || binding.teHomework.text.isEmpty() ||
+        if (binding.teTitle.text.isEmpty() || binding.teHomework.text!!.isEmpty() ||
             lesson_DB == "" || binding.teDataEnd.text.isEmpty()
         ) {
             Toast.makeText(this, "Заполните поля", Toast.LENGTH_SHORT).show()

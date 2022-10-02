@@ -29,29 +29,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/te_homework"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/te_homework_l"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/courner_te"
-        android:ems="10"
-        android:fontFamily="@font/arsenal_bold"
-        android:gravity="start|top"
-        android:hint="Домашка"
-        android:inputType="textMultiLine"
-        android:lines="6"
-        android:maxLength="512"
-        android:maxLines="6"
-        android:minLines="3"
-        android:padding="8dp"
-        android:paddingLeft="16dp"
-        android:scrollbars="vertical"
-        android:textColor="@color/white"
-        android:textColorHint="@color/gray"
         app:layout_constraintEnd_toEndOf="@+id/te_title"
         app:layout_constraintStart_toStartOf="@+id/te_title"
-        app:layout_constraintTop_toBottomOf="@+id/te_title" />
+        app:layout_constraintTop_toBottomOf="@+id/te_title"
+        app:counterEnabled="true"
+        app:counterMaxLength="512"
+        android:background="@drawable/courner_te"
+        android:padding="8dp"
+        android:paddingLeft="16dp"
+        android:layout_marginTop="16dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/te_homework"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#00FFFFFF"
+                android:ems="10"
+                android:fontFamily="@font/arsenal_bold"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                android:lines="4"
+                android:maxLength="512"
+                android:maxLines="4"
+                android:minLines="3"
+                android:scrollbars="vertical"
+                android:textColor="@color/white"
+                android:textColorHint="@color/gray"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Spinner
         android:id="@+id/spinner_lessons"
@@ -61,9 +68,9 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:background="@drawable/courner_te"
-        app:layout_constraintEnd_toEndOf="@+id/te_homework"
-        app:layout_constraintStart_toStartOf="@+id/te_homework"
-        app:layout_constraintTop_toBottomOf="@+id/te_homework" />
+        app:layout_constraintEnd_toEndOf="@+id/te_homework_l"
+        app:layout_constraintStart_toStartOf="@+id/te_homework_l"
+        app:layout_constraintTop_toBottomOf="@+id/te_homework_l" />
 
     <EditText
         android:id="@+id/te_data_start"
@@ -96,7 +103,7 @@
         android:fontFamily="@font/arsenal"
         android:gravity="center"
         android:hint="Дата сдачи"
-        android:inputType="text"
+        android:inputType="date"
         android:maxLength="35"
         android:maxLines="0"
         android:padding="8dp"
