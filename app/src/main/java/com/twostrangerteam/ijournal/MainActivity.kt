@@ -20,10 +20,6 @@ class MainActivity : AppCompatActivity() {
         //инит биндинга
         binding = ActivityMainBinding.inflate(layoutInflater)
 
-       supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.main_frame, FragmentHomeWork.newInstance())
-            .commit()
 
         setContentView(binding.root)
         binding.bottomMenu.selectedItemId = R.id.homework_list
@@ -47,6 +43,12 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, LoginActivity::class.java)
             intent.flags= Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
+        }
+        else{
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.main_frame, FragmentHomeWork.newInstance())
+                .commit()
         }
     }
 }

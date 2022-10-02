@@ -6,57 +6,66 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.FragmentUser">
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/avatarka"
-            android:layout_width="100dp"
-            android:layout_height="100dp" android:padding="8dp"
-            app:civ_border_color="@color/gray"
-            app:civ_border_width="3dp" />
+        android:background="#9982898D"
+        app:cardCornerRadius="8dp"
+        android:layout_margin="5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="16dp"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:padding="16dp">
 
-            <TextView
-                android:id="@+id/tv_Nick"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/avatarka"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:padding="8dp"
+                app:civ_border_color="@color/gray"
+                app:civ_border_width="3dp" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/arsenal_bold"
-                android:padding="2dp"
-                android:text=""
-                android:textSize="20sp" />
+                android:orientation="vertical"
+                android:paddingLeft="16dp">
 
-            <TextView
-                android:textColor="@color/gray"
-                android:id="@+id/tv_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/arsenal"
-                android:padding="2dp"
-                android:text=""
-                android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/tv_Nick"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/arsenal_bold"
+                    android:padding="2dp"
+                    android:text=""
+                    android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/tv_crypt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/arsenal"
-                android:padding="2dp"
-                android:text=""
-                android:textSize="18sp"
-                android:textColor="@color/gray"/>
+                <TextView
+                    android:id="@+id/tv_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/arsenal"
+                    android:padding="2dp"
+                    android:text=""
+                    android:textColor="@color/gray"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_crypt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/arsenal"
+                    android:padding="2dp"
+                    android:text=""
+                    android:textColor="@color/gray"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
         </LinearLayout>
-
-    </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
     <Button
         android:id="@+id/btn_signOut"

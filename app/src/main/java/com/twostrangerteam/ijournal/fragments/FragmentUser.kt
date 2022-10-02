@@ -1,5 +1,8 @@
 package com.twostrangerteam.ijournal.fragments
 
+import android.app.Activity
+import android.app.AlertDialog
+import android.content.ContentResolver
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,7 +17,12 @@ import com.twostrangerteam.ijournal.databinding.ActivityMainBinding
 import com.twostrangerteam.ijournal.databinding.FragmentUserBinding
 import com.twostrangerteam.ijournal.joinus.LoginActivity
 import android.content.Intent
+import android.net.Uri
+import android.provider.MediaStore
+import com.google.firebase.storage.FirebaseStorage
 import com.squareup.picasso.Picasso
+import com.twostrangerteam.ijournal.classes.User
+import java.util.*
 
 
 class FragmentUser : Fragment() {
@@ -29,6 +37,70 @@ class FragmentUser : Fragment() {
         binding.btnSignOut.setOnClickListener {
             signOut()
         }
+
+        binding.avatarka.setOnClickListener {
+            changeAvatar()
+        }
+    }
+
+    private fun changeAvatar() {
+
+            val builder = AlertDialog.Builder(getActivity())
+            builder.setTitle("Вы уверены, что хотите изменить аватар?")
+            builder.setPositiveButton("Да",{dialogInterface, i ->
+                val intent = Intent(Intent.ACTION_PICK)
+                intent.type = "image/*"
+                startActivityForResult(intent, 0)
+
+            })
+            builder.setNegativeButton("Нет",{dialog, i -> })
+            builder.show()
+        }
+
+
+    var selectedPhotoUri: Uri? = null
+
+    //Получение картинки
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+            selectedPhotoUri = data!!.data
+            val bitmap = MediaStore.Images.Media.getBitmap(activity?.getContentResolver(), selectedPhotoUri)
+            binding.avatarka.setImageBitmap(bitmap)
+            updatePhoto()
+    }
+
+    private fun updatePhoto() {
+        val filename = UUID.randomUUID().toString()
+        val ref = FirebaseStorage.getInstance().getReference("/images/$filename")
+
+        ref.putFile(selectedPhotoUri!!).addOnSuccessListener {
+            ref.downloadUrl.addOnSuccessListener{
+                updateUserPhoto2DB(it.toString())
+            }
+        }
+    }
+
+    private fun updateUserPhoto2DB(profileImageUrl: String) {
+        val uid = FirebaseAuth.getInstance().uid ?:""
+        val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
+
+        val mRefUser = FirebaseDatabase.getInstance().getReference("/users/")
+        mRefUser.child(uid.toString()).get().addOnSuccessListener {
+            if (it.exists()) {
+                val user = User(
+                    uid,
+                    it.child("nick").value.toString(),
+                    profileImageUrl,
+                    it.child("crypt").value.toString(),
+                    it.child("email").value.toString())
+
+                ref.setValue(user).addOnSuccessListener{
+                    Toast.makeText(activity, "Фото профиля сохранено", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
+
     }
 
     override fun onCreateView(
