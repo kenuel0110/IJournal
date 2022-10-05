@@ -20,6 +20,7 @@ import android.widget.EditText
 import com.google.firebase.storage.FirebaseStorage
 import com.squareup.picasso.Picasso
 import com.twostrangerteam.ijournal.BallListActivity
+import com.twostrangerteam.ijournal.CabinetsActivity
 import com.twostrangerteam.ijournal.HomeWPageActivity
 import com.twostrangerteam.ijournal.Settings_ListActivity
 import com.twostrangerteam.ijournal.classes.User
@@ -72,6 +73,11 @@ class FragmentUser : Fragment() {
             val intent = Intent(view.context, Settings_ListActivity::class.java)
             startActivity(intent)
         }
+
+        binding.btnCabinets.setOnClickListener {
+            val intent = Intent(view.context, CabinetsActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun dataChange(title: String, value: String, hint: String, type: Int, name_v: String) {
@@ -100,10 +106,6 @@ class FragmentUser : Fragment() {
         builder.setNegativeButton("Отменить", DialogInterface.OnClickListener { dialog, which -> dialog.cancel() })
 
         builder.show()
-    }
-
-    private fun nickChange() {
-
     }
 
     private fun changeUserData() {
