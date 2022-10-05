@@ -19,6 +19,7 @@ import android.text.InputType
 import android.widget.EditText
 import com.google.firebase.storage.FirebaseStorage
 import com.squareup.picasso.Picasso
+import com.twostrangerteam.ijournal.BallListActivity
 import com.twostrangerteam.ijournal.HomeWPageActivity
 import com.twostrangerteam.ijournal.Settings_ListActivity
 import com.twostrangerteam.ijournal.classes.User
@@ -62,6 +63,10 @@ class FragmentUser : Fragment() {
         }
         binding.btnPlaning.setOnClickListener {
             Toast.makeText(activity, "Ещё в разработке", Toast.LENGTH_SHORT).show()
+        }
+        binding.btnBallList.setOnClickListener {
+            val intent = Intent(view.context, BallListActivity::class.java)
+            startActivity(intent)
         }
         binding.btnSettings.setOnClickListener {
             val intent = Intent(view.context, Settings_ListActivity::class.java)

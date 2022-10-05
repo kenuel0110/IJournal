@@ -91,6 +91,23 @@
             android:textStyle="bold" />
 
         <Button
+            android:id="@+id/btn_ballList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+
+            android:background="@drawable/courner_btn"
+
+            android:fontFamily="@font/arsenal_bold"
+
+            android:gravity="center"
+            android:text="РАСПИСАНИЕ ЗВОНКОВ"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Button
             android:id="@+id/btn_chat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
