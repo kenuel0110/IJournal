@@ -16,6 +16,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IJournal">
         <activity
+            android:name=".SheduleActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".CabinetsActivity"
             android:exported="false">
             <meta-data

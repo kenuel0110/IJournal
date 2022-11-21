@@ -20,6 +20,8 @@ import kotlinx.android.synthetic.main.activity_ball_list.*
 class BallListActivity : AppCompatActivity() {
     lateinit var binding: ActivityBallListBinding
 
+    private var adapter = GroupAdapter<ViewHolder>()
+
     private var items_kolh: List<RingBallModel> = listOf<RingBallModel>(
         RingBallModel("1", "8:30 - 9:15", "5 мин "),
         RingBallModel(" ", "9:20 - 10:05", "10 мин"),
@@ -65,9 +67,9 @@ class BallListActivity : AppCompatActivity() {
     }
 
     private fun initRV(tab_string: Int) {
+        adapter.clear()
         when(tab_string){
             0 -> {
-                var adapter = GroupAdapter<ViewHolder>()
                 items_main.forEach {
                     var local_item = RingBallModel(it.lesson_num, it.timeStart_End, it.breakTime)
                     adapter.add(RingBallItem(local_item))
@@ -77,7 +79,6 @@ class BallListActivity : AppCompatActivity() {
                 }
             }
             1 -> {
-                    var adapter = GroupAdapter<ViewHolder>()
                     items_kolh.forEach {
                         var local_item =
                             RingBallModel(it.lesson_num, it.timeStart_End, it.breakTime)
