@@ -3,6 +3,9 @@ package com.twostrangerteam.ijournal
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MotionEvent
+import android.view.inputmethod.InputMethodManager
+import androidx.core.view.GravityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.tabs.TabLayout
 import com.twostrangerteam.ijournal.classes.HomeWorkItem
@@ -85,7 +88,5 @@ class BallListActivity : AppCompatActivity() {
                     }
             }
         }
-        /*
-        }*/
     }
 }
