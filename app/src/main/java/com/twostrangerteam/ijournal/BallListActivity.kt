@@ -19,24 +19,24 @@ class BallListActivity : AppCompatActivity() {
 
     private var items_kolh: List<RingBallModel> = listOf<RingBallModel>(
         RingBallModel("1", "8:30 - 9:15", "5 мин"),
-        RingBallModel("", "9:20 - 10:05", "10 мин"),
+        RingBallModel(" ", "9:20 - 10:05", "10 мин"),
         RingBallModel("2", "10:15 - 11:00", "5 мин"),
-        RingBallModel("", "11:05 - 11:50", "30 мин"),
+        RingBallModel(" ", "11:05 - 11:50", "30 мин"),
         RingBallModel("3", "12:20 - 13:05", "5 мин"),
-        RingBallModel("", "13:10 - 13:55", "10 мин"),
+        RingBallModel(" ", "13:10 - 13:55", "10 мин"),
         RingBallModel("4", "14:05 - 14:50", "5 мин"),
-        RingBallModel("", "14:55 - 15:40", "")
+        RingBallModel(" ", "14:55 - 15:40", "")
     )
 
     private var items_main: List<RingBallModel> = listOf<RingBallModel>(
         RingBallModel("1", "8:30 - 9:15", "5 мин"),
-        RingBallModel("", "9:20 - 10:05", "10 мин"),
+        RingBallModel(" ", "9:20 - 10:05", "10 мин"),
         RingBallModel("2", "10:15 - 11:00", "5 мин"),
-        RingBallModel("", "11:05 - 11:50", "40 мин"),
+        RingBallModel(" ", "11:05 - 11:50", "40 мин"),
         RingBallModel("3", "12:30 - 13:15", "5 мин"),
-        RingBallModel("", "13:20 - 14:05", "10 мин"),
+        RingBallModel(" ", "13:20 - 14:05", "10 мин"),
         RingBallModel("4", "14:15 - 15:00", "5 мин"),
-        RingBallModel("", "15:05 - 15:50", "")
+        RingBallModel(" ", "15:05 - 15:50", "")
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
