@@ -17,6 +17,7 @@
         android:theme="@style/Theme.IJournal">
         <activity
             android:name=".SheduleActivity"
+            android:screenOrientation="portrait"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -24,6 +25,7 @@
         </activity>
         <activity
             android:name=".CabinetsActivity"
+            android:screenOrientation="portrait"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -31,6 +33,7 @@
         </activity>
         <activity
             android:name=".BallListActivity"
+            android:screenOrientation="portrait"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -38,6 +41,7 @@
         </activity>
         <activity
             android:name=".Settings_ListActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".HomeWADDActivity"
