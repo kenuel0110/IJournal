@@ -95,7 +95,7 @@ class FragmentHomeWork : Fragment() {
                                     intent.putExtra(HOMEWORK_KEY, item.hw.uuid_hw)
                                     startActivity(intent)
                                 }
-                                //подсоединение адаптера к рицайклвью
+                                //подсоединение адаптера к recyclerview
                                 binding.rcHomeWork.adapter = adapter
                                 adapter.notifyDataSetChanged()
 
