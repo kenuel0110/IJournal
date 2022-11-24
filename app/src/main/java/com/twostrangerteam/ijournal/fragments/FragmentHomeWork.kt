@@ -29,6 +29,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.view.size
 import androidx.recyclerview.widget.ItemTouchHelper
 import com.twostrangerteam.ijournal.classes.SwipeToDelete
+import kotlinx.android.synthetic.main.fragment_home_work.*
 
 class FragmentHomeWork : Fragment() {
 
@@ -73,6 +74,8 @@ class FragmentHomeWork : Fragment() {
                 id: Long
             ) {
                 if (types[position] == "Фильтр"){
+                        rc_homeWork.visibility = View.VISIBLE
+                        tv_listEmpty.visibility = View.GONE
                         val mRefProducts = FirebaseDatabase.getInstance().getReference("/home_work/").orderByChild("data_end")
                         //слушатель данных
                         mRefProducts.addListenerForSingleValueEvent(object: ValueEventListener {
@@ -100,6 +103,11 @@ class FragmentHomeWork : Fragment() {
                                 //подсоединение адаптера к recyclerview
                                 binding.rcHomeWork.adapter = adapter
                                 adapter.notifyDataSetChanged()
+                                if(binding.rcHomeWork.getAdapter()?.getItemCount() == 0){
+                                    rc_homeWork.visibility = View.GONE
+                                    tv_listEmpty.visibility = View.VISIBLE
+                                    //Toast.makeText(context, "Список пуст", Toast.LENGTH_SHORT).show()
+                                }
 
                             }
                             override fun onCancelled(error: DatabaseError) {
@@ -111,6 +119,8 @@ class FragmentHomeWork : Fragment() {
 
 
                 else {
+                        rc_homeWork.visibility = View.VISIBLE
+                        tv_listEmpty.visibility = View.GONE
                         val mRefProducts = FirebaseDatabase.getInstance().getReference("/home_work/").orderByChild("data_end")
                         //слушатель данных
                         mRefProducts.addListenerForSingleValueEvent(object: ValueEventListener {
@@ -140,8 +150,9 @@ class FragmentHomeWork : Fragment() {
                                 binding.rcHomeWork.adapter = adapter
                                 adapter.notifyDataSetChanged()
                                 if(binding.rcHomeWork.getAdapter()?.getItemCount() == 0){
-                                    adapter.add(HomeWorkItem(HomeWorkModel("", "Список пуст","","","","")))
-                                    adapter.notifyDataSetChanged()
+                                    rc_homeWork.visibility = View.GONE
+                                    tv_listEmpty.visibility = View.VISIBLE
+                                    //Toast.makeText(context, "Список пуст", Toast.LENGTH_SHORT).show()
                                 }
                             }
                             override fun onCancelled(error: DatabaseError) {
