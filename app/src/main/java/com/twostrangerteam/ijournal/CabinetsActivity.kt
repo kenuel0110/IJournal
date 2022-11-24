@@ -3,6 +3,7 @@ package com.twostrangerteam.ijournal
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.view.size
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -38,6 +39,11 @@ class CabinetsActivity : AppCompatActivity() {
                     }
                 }
                 binding.rvCabinets.layoutManager = LinearLayoutManager(this@CabinetsActivity)
+
+                if(binding.rvCabinets.getAdapter()?.getItemCount() == 0){
+                    adapter.add(CabinetItem(CabinetModel("", "Список пуст")))
+                }
+
                 //действие по нажатию
                 adapter.setOnItemClickListener { item, view ->
 

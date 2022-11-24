@@ -26,6 +26,7 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
 import android.content.Intent
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.size
 import androidx.recyclerview.widget.ItemTouchHelper
 import com.twostrangerteam.ijournal.classes.SwipeToDelete
 
@@ -138,6 +139,10 @@ class FragmentHomeWork : Fragment() {
                                 //подсоединение адаптера к рицайклвью
                                 binding.rcHomeWork.adapter = adapter
                                 adapter.notifyDataSetChanged()
+                                if(binding.rcHomeWork.getAdapter()?.getItemCount() == 0){
+                                    adapter.add(HomeWorkItem(HomeWorkModel("", "Список пуст","","","","")))
+                                    adapter.notifyDataSetChanged()
+                                }
                             }
                             override fun onCancelled(error: DatabaseError) {
                                 TODO("Not yet implemented")

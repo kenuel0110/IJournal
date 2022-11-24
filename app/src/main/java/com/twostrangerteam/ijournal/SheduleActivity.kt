@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.core.view.size
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.SimpleItemAnimator
 import com.google.android.material.tabs.TabLayout
@@ -157,7 +158,10 @@ class SheduleActivity : AppCompatActivity() {
                     adapter.notifyDataSetChanged()
                 }
             }
-
+        }
+        if (binding.rvSheduleList.getAdapter()?.getItemCount() == 0){
+            adapter.add(SheduleItem(SheduleModel("","Список пуст", "","")))
+            adapter.notifyDataSetChanged()
         }
     }
 }
