@@ -1,21 +1,25 @@
 package com.twostrangerteam.ijournal
 
-import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
+import android.R
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.MotionEvent
-import android.view.inputmethod.InputMethodManager
-import androidx.core.view.GravityCompat
+import android.view.animation.Animation
+import android.view.animation.OvershootInterpolator
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.size
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.SimpleItemAnimator
 import com.google.android.material.tabs.TabLayout
-import com.twostrangerteam.ijournal.classes.HomeWorkItem
 import com.twostrangerteam.ijournal.classes.RingBallItem
 import com.twostrangerteam.ijournal.classes.RingBallModel
 import com.twostrangerteam.ijournal.databinding.ActivityBallListBinding
-import com.twostrangerteam.ijournal.databinding.ActivityHomeWaddactivityBinding
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
+import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter
+import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator
+import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
 import kotlinx.android.synthetic.main.activity_ball_list.*
+
 
 class BallListActivity : AppCompatActivity() {
     lateinit var binding: ActivityBallListBinding
@@ -49,6 +53,10 @@ class BallListActivity : AppCompatActivity() {
         binding = ActivityBallListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        (binding.rvBallList.itemAnimator as SimpleItemAnimator).supportsChangeAnimations = false
+        binding.rvBallList.layoutManager = LinearLayoutManager(this)
+        binding.rvBallList.adapter = adapter
+
         initRV(0)
         tabLayoutBall.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{
             override fun onTabSelected(tab: TabLayout.Tab?) {
@@ -73,19 +81,15 @@ class BallListActivity : AppCompatActivity() {
                 items_main.forEach {
                     var local_item = RingBallModel(it.lesson_num, it.timeStart_End, it.breakTime)
                     adapter.add(RingBallItem(local_item))
-                    binding.rvBallList.layoutManager = LinearLayoutManager(this)
-                    binding.rvBallList.adapter = adapter
-                    adapter.notifyDataSetChanged()
+                    adapter.notifyItemRangeChanged(0, binding.rvBallList.size)
                 }
+
             }
             1 -> {
                     items_kolh.forEach {
-                        var local_item =
-                            RingBallModel(it.lesson_num, it.timeStart_End, it.breakTime)
+                        var local_item = RingBallModel(it.lesson_num, it.timeStart_End, it.breakTime)
                         adapter.add(RingBallItem(local_item))
-                        binding.rvBallList.layoutManager = LinearLayoutManager(this)
-                        binding.rvBallList.adapter = adapter
-                        adapter.notifyDataSetChanged()
+                        adapter.notifyItemRangeChanged(0, binding.rvBallList.size)
                     }
             }
         }

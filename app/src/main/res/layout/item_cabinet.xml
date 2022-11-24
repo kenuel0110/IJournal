@@ -6,6 +6,7 @@
     android:layout_margin="8dp">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/rv_cabinets_cardview"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="#9982898D"

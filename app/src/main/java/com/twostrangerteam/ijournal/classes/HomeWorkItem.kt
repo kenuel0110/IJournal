@@ -1,5 +1,6 @@
 package com.twostrangerteam.ijournal.classes
 
+import android.view.animation.AnimationUtils
 import com.squareup.picasso.Picasso
 import com.twostrangerteam.ijournal.R
 import com.xwray.groupie.Item
@@ -8,6 +9,8 @@ import kotlinx.android.synthetic.main.home_work_item.view.*
 
 class HomeWorkItem(val hw: HomeWorkModel): Item<ViewHolder>() {
     override fun bind(viewHolder: ViewHolder, position: Int) {
+        viewHolder.itemView.rv_homework_cardview.animation = AnimationUtils.loadAnimation(viewHolder.itemView.rv_homework_cardview.context, R.anim.item_alpha)
+
         viewHolder.itemView.tv_title.text = hw.title
         viewHolder.itemView.tv_lesson.text = hw.lesson
         viewHolder.itemView.tv_data_start.text = hw.data_start

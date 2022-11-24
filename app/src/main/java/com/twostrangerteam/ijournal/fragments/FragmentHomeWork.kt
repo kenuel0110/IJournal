@@ -1,5 +1,6 @@
 package com.twostrangerteam.ijournal.fragments
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -112,6 +113,7 @@ class FragmentHomeWork : Fragment() {
                         val mRefProducts = FirebaseDatabase.getInstance().getReference("/home_work/").orderByChild("data_end")
                         //слушатель данных
                         mRefProducts.addListenerForSingleValueEvent(object: ValueEventListener {
+                            @SuppressLint("NotifyDataSetChanged")
                             override fun onDataChange(p0: DataSnapshot) {
                                 //адаптер для рицайклвью
                                 val adapter = GroupAdapter<ViewHolder>()
