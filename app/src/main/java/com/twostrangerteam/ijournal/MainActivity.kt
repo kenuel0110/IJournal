@@ -20,9 +20,14 @@ class MainActivity : AppCompatActivity() {
         //инит биндинга
         binding = ActivityMainBinding.inflate(layoutInflater)
 
-
         setContentView(binding.root)
-        binding.bottomMenu.selectedItemId = R.id.homework_list
+        var openTab = intent.getStringExtra("TabName").toString()
+        if (openTab == "null"){
+            binding.bottomMenu.selectedItemId = R.id.homework_list
+        }
+        else if (openTab == "gradle"){
+            binding.bottomMenu.selectedItemId = R.id.raiting_list
+        }
         binding.bottomMenu.setOnNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.homework_list -> {supportFragmentManager.beginTransaction().replace(R.id.main_frame, FragmentHomeWork.newInstance()).commit()}
@@ -45,10 +50,19 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         else{
-            supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.main_frame, FragmentHomeWork.newInstance())
-                .commit()
+            var openTab = intent.getStringExtra("TabName").toString()
+            if (openTab == "null"){
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.main_frame, FragmentHomeWork.newInstance())
+                    .commit()
+            }
+            else if (openTab == "gradle"){
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.main_frame, FragmentGrade.newInstance())
+                    .commit()
+            }
         }
     }
 }
