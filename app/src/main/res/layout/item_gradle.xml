@@ -20,42 +20,46 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tv_title_gradle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_margin="18dp"
                 android:fontFamily="@font/arsenal_bold"
                 android:gravity="center"
                 android:text="TextView"
-                android:textSize="20sp" />
+                android:textSize="34sp" />
 
             <TextView
                 android:id="@+id/tv_lesson_gradle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
                 android:fontFamily="@font/arsenal"
                 android:gravity="center"
-                android:text="TextView" />
+                android:text="TextView"
+                android:textSize="24sp" />
 
-                <TextView
-                    android:id="@+id/tv_data_gradle"
-                    android:layout_width="match_parent"
-                    android:gravity="right"
-                    android:textColor="@color/gray"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="2dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/arsenal"
-                    android:padding="4dp"
-                    android:text="TextView" />
-
+            <TextView
+                android:id="@+id/tv_data_gradle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/arsenal"
+                android:gravity="right"
+                android:padding="4dp"
+                android:text="TextView"
+                android:textColor="@color/gray"
+                android:textSize="20sp" />
         </LinearLayout>
+
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

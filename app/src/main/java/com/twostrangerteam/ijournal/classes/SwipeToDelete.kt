@@ -1,21 +1,13 @@
-package com.twostrangerteam.ijournal.classes
+package com.xwray.groupie.example.item
 
-import android.content.Context
+import androidx.annotation.ColorInt
 import androidx.recyclerview.widget.ItemTouchHelper
-import androidx.recyclerview.widget.RecyclerView
+import com.twostrangerteam.ijournal.classes.GradleItem
+import com.twostrangerteam.ijournal.classes.GradleModel
 
-abstract class SwipeToDelete(context: Context, dragDir: Int, swipeDir: Int): ItemTouchHelper.SimpleCallback(dragDir, swipeDir)
-{
-    override fun onMove(
-        recyclerView: RecyclerView,
-        viewHolder: RecyclerView.ViewHolder,
-        target: RecyclerView.ViewHolder
-    ): Boolean {
-        return false
+class SwipeToDelete(gradleModel: GradleModel) : GradleItem(gradleModel) {
+
+    override fun getSwipeDirs(): Int {
+        return ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
     }
-
-    override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-        TODO("Not yet implemented")
-    }
-
 }
