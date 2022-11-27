@@ -3,7 +3,6 @@ package com.twostrangerteam.ijournal.fragments
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,8 +11,8 @@ import android.widget.ArrayAdapter
 import android.widget.SpinnerAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -22,15 +21,9 @@ import com.google.firebase.database.ValueEventListener
 import com.twostrangerteam.ijournal.*
 import com.twostrangerteam.ijournal.classes.GradleItem
 import com.twostrangerteam.ijournal.classes.GradleModel
-import com.twostrangerteam.ijournal.classes.HomeWorkItem
-import com.twostrangerteam.ijournal.classes.HomeWorkModel
 import com.twostrangerteam.ijournal.databinding.FragmentGradeBinding
-import com.twostrangerteam.ijournal.databinding.FragmentHomeWorkBinding
-import com.twostrangerteam.ijournal.databinding.FragmentUserBinding
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
-import kotlinx.android.synthetic.main.fragment_grade.*
-import kotlinx.android.synthetic.main.fragment_home_work.*
 
 
 class FragmentGrade : Fragment() {
@@ -42,10 +35,22 @@ class FragmentGrade : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val builder = AlertDialog.Builder(requireContext())
+        val dialogView = layoutInflater.inflate(R.layout.item_loading, null)
+        builder.setView(dialogView)
+        builder.setCancelable(false)
+        val dialog = builder.create()
+
+
         binding.rvGradle.layoutManager = GridLayoutManager(requireActivity().baseContext, 2)
         adapter_spin = ArrayAdapter.createFromResource(requireActivity().baseContext, R.array.types, R.layout.spinner_list) as SpinnerAdapter
         binding.spinnerGradleFilter.adapter = adapter_spin
+
+        dialog.show()
         initSpinner()
+        dialog.dismiss()
+
         binding.btnAddGradle.setOnClickListener {
             val intent = Intent(activity, GradeItemEditActivity::class.java)
             startActivity(intent)
@@ -56,6 +61,7 @@ class FragmentGrade : Fragment() {
             binding.spinnerGradleFilter.setSelection(filterId)
             binding.swipetorefreshGr.isRefreshing = false
         }
+
     }
 
     private fun initSpinner() {

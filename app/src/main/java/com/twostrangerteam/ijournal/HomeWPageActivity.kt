@@ -3,8 +3,15 @@ package com.twostrangerteam.ijournal
 import android.app.DatePickerDialog
 import android.content.DialogInterface
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.database.ValueEventListener
+import com.twostrangerteam.ijournal.*
+import com.twostrangerteam.ijournal.classes.GradleItem
+import com.twostrangerteam.ijournal.classes.GradleModel
+import com.twostrangerteam.ijournal.databinding.FragmentGradeBinding
+import com.xwray.groupie.GroupAdapter
+import com.xwray.groupie.ViewHolder
 import android.text.InputType
 import android.widget.EditText
 import android.widget.Toast
@@ -37,9 +44,14 @@ class HomeWPageActivity : AppCompatActivity() {
         setContentView(binding.root)
         uuid_hw = intent.getStringExtra(HOMEWORK_KEY).toString()
 
-
+        val builder = AlertDialog.Builder(this)
+        val dialogView = layoutInflater.inflate(R.layout.item_loading, null)
+        builder.setView(dialogView)
+        builder.setCancelable(false)
+        val dialog = builder.create()
 
         initData(uuid_hw)
+
 
         binding.btnBack.setOnClickListener {
             finish()
