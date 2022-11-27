@@ -23,6 +23,7 @@ class GradeItemEditActivity : AppCompatActivity() {
     private var lesson_DB = ""
     private var lessons_list: ArrayList<String> = arrayListOf("Экология", "Информационные технологии", "Интернет технологии", "Культура речи", "Английский", "Математика", "Физ-ра", "Введение в профессию", "История", "Проектная деятельность")
     lateinit var binding: ActivityGradeItemBinding
+    private var gradleId = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +43,14 @@ class GradeItemEditActivity : AppCompatActivity() {
 
         binding.btnDataPickerGradle.setOnClickListener {
             open_datapicker()
+        }
+        binding.gradleRg.setOnCheckedChangeListener { group, chekedId ->
+            when(chekedId){
+                R.id.gr_rb_2 -> gradleId = 2
+                R.id.gr_rb_3 -> gradleId = 3
+                R.id.gr_rb_4 -> gradleId = 4
+                R.id.gr_rb_5 -> gradleId = 5
+            }
         }
     }
 
@@ -87,21 +96,18 @@ class GradeItemEditActivity : AppCompatActivity() {
     }
 
     private fun add2database() {
-        if (binding.teGradleTitle.text.isEmpty() || binding.teDataGradle.text!!.isEmpty() ||
+        if (gradleId == 0 || binding.teDataGradle.text!!.isEmpty() ||
             lesson_DB == ""
         ) {
-            Toast.makeText(this, "Заполните поля", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Заполните данные", Toast.LENGTH_SHORT).show()
         }
         else{
-            if (binding.teGradleTitle.text.toString().toInt() < 2 || binding.teGradleTitle.text.toString().toInt() > 5){
-                Toast.makeText(this, "Введите корректную оценку", Toast.LENGTH_SHORT).show()
-            }
-            else{
+
             val uid = UUID.randomUUID().toString()
             val user_uid = FirebaseAuth.getInstance().uid
             val ref = FirebaseDatabase.getInstance().getReference("/grades/$uid")
 
-            val gr = Gradle(uid,user_uid.toString(), binding.teGradleTitle.text.toString(), lesson_DB, binding.teDataGradle.text.toString())
+            val gr = Gradle(uid,user_uid.toString(), gradleId.toString(), lesson_DB, binding.teDataGradle.text.toString())
 
             ref.setValue(gr).addOnSuccessListener {
                 Toast.makeText(this, "Оценка добавлена", Toast.LENGTH_SHORT).show()
@@ -111,9 +117,8 @@ class GradeItemEditActivity : AppCompatActivity() {
                 startActivity(intent)
             }
                 .addOnFailureListener {
-                    Toast.makeText(this, it.message.toString(), Toast.LENGTH_SHORT).show()
-                }
-            }
+                    Toast.makeText(this, it.message.toString(), Toast.LENGTH_SHORT).show() }
+
         }
     }
 }

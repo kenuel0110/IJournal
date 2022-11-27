@@ -7,28 +7,66 @@
     android:background="@color/dark_gray"
     tools:context=".HomeWADDActivity">
 
-    <EditText
-        android:id="@+id/te_gradle_title"
+    <RadioGroup
+        android:orientation="horizontal"
+        android:id="@+id/gradle_rg"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:background="@drawable/courner_te"
-        android:ems="10"
         android:fontFamily="@font/arsenal_bold"
-        android:hint="Оценка"
-        android:inputType="numberDecimal"
-        android:maxLength="1"
-        android:maxLines="0"
         android:padding="8dp"
         android:paddingLeft="16dp"
+        android:gravity="center"
         android:textColor="@color/white"
-        android:textColorHint="@color/gray"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <RadioButton
+                android:id="@+id/gr_rb_2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:fontFamily="@font/arsenal_bold"
+                android:text="2"
+                android:textColor="@color/white"
+                android:textSize="22sp" />
+
+            <RadioButton
+                android:id="@+id/gr_rb_3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:fontFamily="@font/arsenal_bold"
+                android:text="3"
+                android:textColor="@color/white"
+                android:textSize="22sp" />
+
+            <RadioButton
+                android:id="@+id/gr_rb_4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:fontFamily="@font/arsenal_bold"
+                android:text="4"
+                android:textColor="@color/white"
+                android:textSize="22sp" />
+
+            <RadioButton
+                android:id="@+id/gr_rb_5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:fontFamily="@font/arsenal_bold"
+                android:text="5"
+                android:textColor="@color/white"
+                android:textSize="22sp" />
+
+    </RadioGroup>
 
     <Spinner
         android:id="@+id/spinner_lessons_gradle"
@@ -40,7 +78,7 @@
         android:background="@drawable/courner_te"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/te_gradle_title" />
+        app:layout_constraintTop_toBottomOf="@+id/gradle_rg" />
 
     <EditText
         android:id="@+id/te_data_gradle"

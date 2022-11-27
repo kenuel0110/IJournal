@@ -52,6 +52,8 @@ class HomeWADDActivity : AppCompatActivity() {
         val currentDateAndTime: String = simpleDateFormat.format(Date())
         binding.teDataStart.setText(currentDateAndTime)
         binding.teDataStart.isEnabled = false
+        binding.teDataEnd.setText(currentDateAndTime)
+        binding.teDataEnd.isEnabled = false
     }
 
     private fun initSpinner() {
