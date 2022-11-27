@@ -26,6 +26,16 @@ class CabinetsActivity : AppCompatActivity() {
         binding = ActivityCabinetsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        initActivity()
+
+        binding.swipetorefreshCab.setOnRefreshListener {
+            initActivity()
+            binding.swipetorefreshCab.isRefreshing = false
+        }
+
+    }
+
+    private fun initActivity() {
         val mRefProducts = FirebaseDatabase.getInstance().getReference("/cabinets/").orderByChild("num_cab")
         mRefProducts.addListenerForSingleValueEvent(object: ValueEventListener {
             override fun onDataChange(p0: DataSnapshot) {

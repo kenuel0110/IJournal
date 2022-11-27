@@ -37,22 +37,28 @@ class FragmentGrade : Fragment() {
 
     private var types: ArrayList<String> = arrayListOf("Фильтр", "Экология", "Информационные технологии", "Интернет технологии", "Культура речи", "Английский", "Математика", "Физ-ра", "Введение в профессию", "История", "Проектная деятельность")
     lateinit var binding: FragmentGradeBinding
+    lateinit var adapter_spin: SpinnerAdapter
     private var adapter = GroupAdapter<ViewHolder>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.rvGradle.layoutManager = GridLayoutManager(requireActivity().baseContext, 2)
+        adapter_spin = ArrayAdapter.createFromResource(requireActivity().baseContext, R.array.types, R.layout.spinner_list) as SpinnerAdapter
+        binding.spinnerGradleFilter.adapter = adapter_spin
         initSpinner()
         binding.btnAddGradle.setOnClickListener {
             val intent = Intent(activity, GradeItemEditActivity::class.java)
             startActivity(intent)
         }
+        binding.swipetorefreshGr.setOnRefreshListener{
+            var filterId = binding.spinnerGradleFilter.selectedItemId.toString().toInt()
+            initSpinner()
+            binding.spinnerGradleFilter.setSelection(filterId)
+            binding.swipetorefreshGr.isRefreshing = false
+        }
     }
 
     private fun initSpinner() {
-        val adapter_spin = ArrayAdapter.createFromResource(requireActivity().baseContext, R.array.types, R.layout.spinner_list) as SpinnerAdapter
-        binding.spinnerGradleFilter.adapter = adapter_spin
-
         /* //создание объекта свайпа и запуск функции при удачном исходе
          val item = object: SwipeToDelete(requireActivity().baseContext, 0, ItemTouchHelper.LEFT){
              override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {

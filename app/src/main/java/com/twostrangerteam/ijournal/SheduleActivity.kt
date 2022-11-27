@@ -29,17 +29,24 @@ class SheduleActivity : AppCompatActivity() {
     private var list_thu: ArrayList<SheduleModel> = arrayListOf<SheduleModel>()
     private var list_fri: ArrayList<SheduleModel> = arrayListOf<SheduleModel>()
     private var list_sat: ArrayList<SheduleModel> = arrayListOf<SheduleModel>()
+
     private var adapter = GroupAdapter<ViewHolder>()
+    private var tabNum = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySheduleBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.rvSheduleList.layoutManager = LinearLayoutManager(this)
+        binding.rvSheduleList.adapter = adapter
+
         getDataFB()
+        initRV()
         tabLayoutShedule.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                initRV(tab!!.position)
+                tabNum = tab!!.position
+                initRV()
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {
@@ -49,7 +56,13 @@ class SheduleActivity : AppCompatActivity() {
             }
 
         })
-        initRV(0)
+
+        binding.swipetorefreshShed.setOnRefreshListener {
+            clearLists()
+            getDataFB()
+            initRV()
+            binding.swipetorefreshShed.isRefreshing = false
+        }
     }
 
     private fun getDataFB() {
@@ -61,29 +74,49 @@ class SheduleActivity : AppCompatActivity() {
                     if(sh != null){
                         when(sh.dayOfWeek){
                             "Mon" -> {
-                                var local_item = sh
-                                adapter.add(SheduleItem(local_item))
-                                binding.rvSheduleList.layoutManager = LinearLayoutManager(this@SheduleActivity)
-                                binding.rvSheduleList.adapter = adapter
-                                adapter.notifyDataSetChanged()
                                 list_mon.add(sh)
+                                if (tabNum == 0){
+                                    var local_item = sh
+                                    adapter.add(SheduleItem(local_item))
+                                }
                             }
                             "Tue" -> {
                                 list_tue.add(sh)
+                                if (tabNum == 1){
+                                    var local_item = sh
+                                    adapter.add(SheduleItem(local_item))
+                                }
                             }
                             "Wed" -> {
                                 list_wed.add(sh)
+                                if (tabNum == 2){
+                                    var local_item = sh
+                                    adapter.add(SheduleItem(local_item))
+                                }
                             }
                             "Thu" -> {
                                 list_thu.add(sh)
+                                if (tabNum == 3){
+                                    var local_item = sh
+                                    adapter.add(SheduleItem(local_item))
+                                }
                             }
                             "Fri" -> {
                                 list_fri.add(sh)
+                                if (tabNum == 4){
+                                    var local_item = sh
+                                    adapter.add(SheduleItem(local_item))
+                                }
                             }
                             "Sat" -> {
                                 list_sat.add(sh)
+                                if (tabNum == 5){
+                                    var local_item = sh
+                                    adapter.add(SheduleItem(local_item))
+                                }
                             }
                         }
+
                     }
                     else{
                         Toast.makeText(this@SheduleActivity, "Произошла ошибка", Toast.LENGTH_SHORT).show()
@@ -93,48 +126,48 @@ class SheduleActivity : AppCompatActivity() {
             override fun onCancelled(error: DatabaseError) {
             }
         })
+        adapter.notifyDataSetChanged()
+    }
+
+    private fun clearLists() {
+        adapter.clear()
+        list_mon.clear()
+        list_tue.clear()
+        list_wed.clear()
+        list_thu.clear()
+        list_fri.clear()
+        list_sat.clear()
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    private fun initRV(tab_string: Int) {
+    private fun initRV() {
         adapter.clear()
-        when(tab_string){
+        when(tabNum){
         0 -> {
             list_mon.forEach {
                 var local_item = SheduleModel(it.dayOfWeek, it.name, it.teacher, it.type)
                 adapter.add(SheduleItem(local_item))
-                binding.rvSheduleList.layoutManager = LinearLayoutManager(this)
-                binding.rvSheduleList.adapter = adapter
-                adapter.notifyDataSetChanged()
             }
         }
         1 -> {
-            list_tue.forEach {
-                var local_item = SheduleModel(it.dayOfWeek, it.name, it.teacher, it.type)
-                adapter.add(SheduleItem(local_item))
-                binding.rvSheduleList.layoutManager = LinearLayoutManager(this)
-                binding.rvSheduleList.adapter = adapter
-                adapter.notifyDataSetChanged()
-                }
-            }
+                list_tue.forEach {
+                    var local_item = SheduleModel(it.dayOfWeek, it.name, it.teacher, it.type)
+                    adapter.add(SheduleItem(local_item))
+                    }
+        }
 
         2 -> {
                 list_wed.forEach {
                     var local_item = SheduleModel(it.dayOfWeek, it.name, it.teacher, it.type)
                     adapter.add(SheduleItem(local_item))
-                    binding.rvSheduleList.layoutManager = LinearLayoutManager(this)
-                    binding.rvSheduleList.adapter = adapter
-                    adapter.notifyDataSetChanged()
                 }
             }
+
 
             3 -> {
                 list_thu.forEach {
                     var local_item = SheduleModel(it.dayOfWeek, it.name, it.teacher, it.type)
                     adapter.add(SheduleItem(local_item))
-                    binding.rvSheduleList.layoutManager = LinearLayoutManager(this)
-                    binding.rvSheduleList.adapter = adapter
-                    adapter.notifyDataSetChanged()
                 }
             }
 
@@ -143,9 +176,6 @@ class SheduleActivity : AppCompatActivity() {
                 list_fri.forEach {
                     var local_item = SheduleModel(it.dayOfWeek, it.name, it.teacher, it.type)
                     adapter.add(SheduleItem(local_item))
-                    binding.rvSheduleList.layoutManager = LinearLayoutManager(this)
-                    binding.rvSheduleList.adapter = adapter
-                    adapter.notifyDataSetChanged()
                 }
             }
 
@@ -153,15 +183,10 @@ class SheduleActivity : AppCompatActivity() {
                 list_sat.forEach {
                     var local_item = SheduleModel(it.dayOfWeek, it.name, it.teacher, it.type)
                     adapter.add(SheduleItem(local_item))
-                    binding.rvSheduleList.layoutManager = LinearLayoutManager(this)
-                    binding.rvSheduleList.adapter = adapter
-                    adapter.notifyDataSetChanged()
                 }
             }
         }
-        if (binding.rvSheduleList.getAdapter()?.getItemCount() == 0){
-            adapter.add(SheduleItem(SheduleModel("","Список пуст", "","")))
-            adapter.notifyDataSetChanged()
-        }
+        adapter.notifyDataSetChanged()
+        //Toast.makeText(this, adapter.itemCount.toString(), Toast.LENGTH_SHORT).show()
     }
 }

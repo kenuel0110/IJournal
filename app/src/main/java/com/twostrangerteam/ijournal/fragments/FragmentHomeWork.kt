@@ -47,26 +47,33 @@ class FragmentHomeWork : Fragment() {
         "Проектная деятельность"
     )
     lateinit var binding: FragmentHomeWorkBinding
+    lateinit var adapter: SpinnerAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initSpinner()
-        binding.btnAddHomeWork.setOnClickListener {
-            val intent = Intent(activity, HomeWADDActivity::class.java)
-            startActivity(intent)
-        }
-    }
-
-    private fun initSpinner() {
-
-        val adapter = ArrayAdapter.createFromResource(
+        adapter = ArrayAdapter.createFromResource(
             requireContext(),
             R.array.types,
             R.layout.spinner_list
         ) as SpinnerAdapter
         binding.spinnerFilter.adapter = adapter
 
+        initSpinner()
+        binding.btnAddHomeWork.setOnClickListener {
+            val intent = Intent(activity, HomeWADDActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.swipetorefreshHw.setOnRefreshListener {
+            var filterId = binding.spinnerFilter.selectedItemId.toString().toInt()
+            initSpinner()
+            binding.spinnerFilter.setSelection(filterId)
+            binding.swipetorefreshHw.isRefreshing = false
+        }
+    }
+
+    private fun initSpinner() {
 
         /* //создание объекта свайпа и запуск функции при удачном исходе
         val item = object: SwipeToDelete(requireActivity().baseContext, 0, ItemTouchHelper.LEFT){
