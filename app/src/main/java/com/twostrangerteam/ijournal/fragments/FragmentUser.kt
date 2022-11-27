@@ -56,9 +56,7 @@ class FragmentUser : Fragment() {
         binding.tvEmail.setOnClickListener {
             dataChange("Изменение Em@il", email, "Введите новый Em@il", InputType.TYPE_CLASS_TEXT, "email")
         }
-        binding.btnChat.setOnClickListener {
-            Toast.makeText(activity, "Ещё в разработке", Toast.LENGTH_SHORT).show()
-        }
+
         binding.btnPlaning.setOnClickListener {
             val intent = Intent(view.context, SheduleActivity::class.java)
             startActivity(intent)
@@ -68,8 +66,13 @@ class FragmentUser : Fragment() {
             startActivity(intent)
         }
         binding.btnSettings.setOnClickListener {
+            /*
             val intent = Intent(view.context, Settings_ListActivity::class.java)
-            startActivity(intent)
+            startActivity(intent)*/
+                val url = "https://ijournal.page.link/telegram_updates"
+                val intent = Intent(Intent.ACTION_VIEW)
+                intent.data = Uri.parse(url)
+                startActivity(intent)
         }
 
         binding.btnCabinets.setOnClickListener {

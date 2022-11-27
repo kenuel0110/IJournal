@@ -174,23 +174,6 @@
                     android:textStyle="bold" />
 
                 <Button
-                    android:id="@+id/btn_chat"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="8dp"
-
-                    android:background="@drawable/courner_btn"
-
-                    android:fontFamily="@font/arsenal_bold"
-
-                    android:gravity="center"
-                    android:text="ЧАТ"
-                    android:textColor="@color/white"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <Button
                     android:id="@+id/btn_settings"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -203,7 +186,7 @@
                     android:fontFamily="@font/arsenal_bold"
 
                     android:gravity="center"
-                    android:text="НАСТРОЙКИ"
+                    android:text="ОБНОВЛЕНИЕ"
                     android:textColor="@color/white"
                     android:textSize="16sp"
                     android:textStyle="bold" />

@@ -65,6 +65,7 @@ class FragmentGrade : Fragment() {
     }
 
     private fun initSpinner() {
+        adapter.clear()
         /* //создание объекта свайпа и запуск функции при удачном исходе
          val item = object: SwipeToDelete(requireActivity().baseContext, 0, ItemTouchHelper.LEFT){
              override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
