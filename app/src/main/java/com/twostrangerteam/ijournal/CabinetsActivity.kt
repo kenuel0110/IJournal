@@ -26,7 +26,9 @@ class CabinetsActivity : AppCompatActivity() {
         binding = ActivityCabinetsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.swipetorefreshCab.isRefreshing = true
         initActivity()
+        binding.swipetorefreshCab.isRefreshing = false
 
         binding.swipetorefreshCab.setOnRefreshListener {
             initActivity()

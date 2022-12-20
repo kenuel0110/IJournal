@@ -59,7 +59,10 @@ class FragmentHomeWork : Fragment() {
         ) as SpinnerAdapter
         binding.spinnerFilter.adapter = adapter
 
+        binding.swipetorefreshHw.isRefreshing = true
         initSpinner()
+        binding.swipetorefreshHw.isRefreshing = false
+
         binding.btnAddHomeWork.setOnClickListener {
             val intent = Intent(activity, HomeWADDActivity::class.java)
             startActivity(intent)

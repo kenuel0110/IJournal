@@ -41,8 +41,11 @@ class SheduleActivity : AppCompatActivity() {
         binding.rvSheduleList.layoutManager = LinearLayoutManager(this)
         binding.rvSheduleList.adapter = adapter
 
+        binding.swipetorefreshShed.isRefreshing = true
         getDataFB()
         initRV()
+        binding.swipetorefreshShed.isRefreshing = false
+
         tabLayoutShedule.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 tabNum = tab!!.position

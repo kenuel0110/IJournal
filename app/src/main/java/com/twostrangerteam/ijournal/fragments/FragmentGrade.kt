@@ -48,7 +48,9 @@ class FragmentGrade : Fragment() {
         binding.spinnerGradleFilter.adapter = adapter_spin
 
         dialog.show()
+        binding.swipetorefreshGr.isRefreshing = true
         initSpinner()
+        binding.swipetorefreshGr.isRefreshing = false
         dialog.dismiss()
 
         binding.btnAddGradle.setOnClickListener {
